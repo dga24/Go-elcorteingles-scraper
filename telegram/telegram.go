@@ -3,6 +3,7 @@ package telegram
 import (
 	"elcorteingles/domain"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"math/rand"
 	"time"
@@ -14,14 +15,14 @@ type Telegram struct{
 	bot *tgbotapi.BotAPI
 }
 
-// func notifyProduct(pr domain.Product) error{
-// 	tgbotapi.NewMessageToChannel("@DGx24","testPostInChanel")
-// 	return nil
-// }
 
 func NewTelegram() Telegram{
-	
-	bot, err := tgbotapi.NewBotAPI("5301405725:AAEfeUJtuaGgO9ESxuB-yy25m9yPMf2zrik")
+
+	botString, err := ioutil.ReadFile("golangcode.txt")
+    if err != nil {
+        log.Fatal("imposible to found idbot file",err)
+    }
+	bot, err := tgbotapi.NewBotAPI(string(botString))
 	if err != nil {
 		log.Panic(err)
 	}

@@ -5,11 +5,6 @@ import (
 	"elcorteingles/telegram"
 )
 
-// type service interface {
-// 	InsertProduct(pr *domain.Product) (err error)
-// 	//insertListProducts(prs []*product) (err error)
-// 	TestDb() (err error)
-// }
 
 const DiscountNotif = 55
 
